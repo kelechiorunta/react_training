@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+import react, { useEffect, useState } from "react";
 
 // Working with the useEffect Hook
 // useEffect() Hook: In React, an effect is anything that happens outside the component rendering process.
@@ -15,6 +15,21 @@
 // using useEffect
 
 export default function Task() {
+  const [data, setData] = useState(null);
+  const [count, setCount] = useState(0)
+  useEffect(()=>{
+    const fetchData = async () =>{
+      try{
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const result = await response.json();
+        setData(result);
+      }catch(error){
+        console.error("error fetching data:", error )
+      }
+    }
+    fetchData()
+
+  },[])
   // useEffect(() => {
   //   // Your side effecsetStetet logic (usually a function) goes here
   // }, [dependencies]);
@@ -26,4 +41,12 @@ export default function Task() {
   // If dependencies is an empty array, useEffect runs only once when the component first renders.
   // If you omit dependencies, the effect runs every time the component renders or updates. This is not a good optimization technique
   // return (<><h1>{ count}</h1></>)
+  return (
+    <>
+      <h1> {count}  </h1>
+      <ul>
+      {data.map((placeholder) => <li key={placeholder.id}>{placeholder.id}</li>)
+      </ul>
+    </>
+  )
 }
