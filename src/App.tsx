@@ -5,6 +5,7 @@ import "./App.css";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+import Task from "./components/tega/useEffect/Task";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
 
       <br />
       {/* <Students /> */}
+        <Task />
     </>
   );
 }
