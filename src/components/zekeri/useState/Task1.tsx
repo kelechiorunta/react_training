@@ -9,7 +9,7 @@
  *
  */
 
-import React from "react";
+import { useState } from 'react';
 
 interface StudentType {
   name: string;
@@ -23,62 +23,110 @@ const initialValue: StudentType[] = [
 ];
 
 export default function Students() {
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const [ allStudents,setAllStudents ] = useState( initialValue );
+  const [ student,setStudent ] = useState( { name:"", course:"", level:"" } );
+
+  const handleNameChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
     //Complete the function by updating the student state variable name property
+    const { name, value } = e.target;
+    setStudent ( prev => ({
+      ...prev,
+      [name]: value,
+    }))
   };
   const handleCourseChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //Complete the function by updating the student state variable course property
+    const { name, value } = e.target;
+    setStudent ( prev => ({
+      ...prev,
+      [name]: value,
+    }))
   };
   const handleLevelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //Complete the function by updating the student state variable level property
+    const { name, value } = e.target;
+    setStudent ( prev => ({
+      ...prev,
+      [name]: value,
+    }))
   };
 
   const addStudent = () => {
     //Update the student state variable(which is an array of students) with a new student
     //using the spread syntax.
+    setAllStudents( prev => ([
+      ...prev,
+      student
+    ]));
+
+    setStudent ( { name:"", course:"", level:"" })
   };
   return (
     <div>
       <h1>Students</h1>
-      <div>
-        <label htmlFor="name">
+      <div className="container row g-3">
+        <label htmlFor="name" className="col-md-6">
           <input
             name="name"
-            type="string"
+            className="form-control"
+            type="text"
+            value={student.name}
             placeholder="Enter Name"
             onChange={handleNameChange}
           />
         </label>
 
-        <label htmlFor="course">
+        <label htmlFor="course" className="col-md-6">
           <input
             name="course"
-            type="string"
+            type="text"
+            value={student.course}
+            className="form-control"
             placeholder="Enter Course"
             onChange={handleCourseChange}
           />
         </label>
 
-        <label htmlFor="level">
+        <label htmlFor="level" className="col-12">
           <input
             name="level"
-            type="string"
+            type="text"
+            value={student.level}
+            className="form-control"
             placeholder="Enter Level"
             onChange={handleLevelChange}
           />
         </label>
+        <div className="col-12">
+          <button 
+            className="btn btn-primary"
+            onClick={() => addStudent()}
+            >
+              Add Student
+          </button>
+        </div>
+        
       </div>
       {/* Uncomment this and complete the mapping of the students */}
-      {/* <ul>
-        {allStudents.map((s: StudentType) => (
-          <>
-            <li>{s.name}</li>
-            <li>{s.course}</li>
-            <li>{s.level}</li>
-          </>
-        ))}
-      </ul> */}
-      <button onClick={() => addStudent()}>Add Student</button>
+      <table className='table table-striped'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allStudents.map((s: StudentType) => (
+            <tr>
+              <td>{s.name}</td>
+              <td>{s.course}</td>
+              <td>{s.level}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
