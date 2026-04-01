@@ -29,7 +29,7 @@ export default function Task() {
     }
     fetchData()
 
-  },[count])
+  },[])
   // useEffect(() => {
   //   // Your side effecsetStetet logic (usually a function) goes here
   // }, [dependencies]);
