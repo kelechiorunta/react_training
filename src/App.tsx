@@ -1,7 +1,10 @@
 // import { useState } from 'react'
 
-import './App.css'
-import Students from './components/zekeri/useState/Task1'
+import "./App.css";
+// import Task from "./components/zekeri/useEffect/Task";
+// import Students from "./components/zekeri/useState/Task1";
+// import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
+// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -18,11 +21,15 @@ function App() {
       </section>
 
       <div className="ticks">{ count}</div> */}
+      {/* <ClassTimerComponent>
+        <h3>ClassTimerComponent</h3>
+      </ClassTimerComponent> */}
+      {/* <FunctionalTimerComponent /> */}
 
       <br />
-      <Students />
+      {/* <Students /> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

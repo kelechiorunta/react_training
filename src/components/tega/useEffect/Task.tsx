@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 // Working with the useEffect Hook
 // useEffect() Hook: In React, an effect is anything that happens outside the component rendering process.
@@ -14,8 +14,7 @@ import { useEffect, useState } from "react";
 // posts: https://jsonplaceholder.typicode.com/posts - Generic posts (100 items).
 // using useEffect
 
-export default function Project2() {
-  // const [count, setCount] = useState(0);
+export default function Task() {
   // useEffect(() => {
   //   // Your side effecsetStetet logic (usually a function) goes here
   // }, [dependencies]);
@@ -25,6 +24,6 @@ export default function Project2() {
   // If dependencies is an array that includes one or more reactive values,
   // the effect will run whenever they change.
   // If dependencies is an empty array, useEffect runs only once when the component first renders.
-  // If you omit dependencies, the effect runs every time the component renders or updates.
+  // If you omit dependencies, the effect runs every time the component renders or updates. This is not a good optimization technique
   // return (<><h1>{ count}</h1></>)
 }
