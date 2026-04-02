@@ -53,3 +53,10 @@ export default function MouseTracker() {
     </div>
   );
 }
+
+// 🧠 What this tests
+// useEffect lifecycle understanding
+// Cleanup functions
+// Function reference equality
+// Event listener management
+// Real-world React patterns
