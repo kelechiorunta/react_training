@@ -1,6 +1,8 @@
 // import { useState } from 'react'
 
 import "./App.css";
+// import TaskOne from "./components/zekeri/useEffect/TaskOne";
+import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
 // import Task from "./components/zekeri/useEffect/Task";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
@@ -28,6 +30,8 @@ function App() {
 
       <br />
       {/* <Students /> */}
+
+      <TaskOneA />
     </>
   );
 }
