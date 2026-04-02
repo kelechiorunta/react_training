@@ -2,11 +2,11 @@
 
 import "./App.css";
 // import TaskOne from "./components/zekeri/useEffect/TaskOne";
-import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
+// import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
 // import Task from "./components/zekeri/useEffect/Task";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
-// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -26,12 +26,12 @@ function App() {
       {/* <ClassTimerComponent>
         <h3>ClassTimerComponent</h3>
       </ClassTimerComponent> */}
-      {/* <FunctionalTimerComponent /> */}
+      <FunctionalTimerComponent />
 
       <br />
       {/* <Students /> */}
 
-      <TaskOneA />
+      {/* <TaskOneA /> */}
     </>
   );
 }
