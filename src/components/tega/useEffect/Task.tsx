@@ -45,7 +45,7 @@ export default function Task() {
     <>
       <h1> {count}  </h1>
       <ul>
-      {data.map((placeholder) => <li key={placeholder.id}>{placeholder.id}</li>)
+      {data.map((placeholder) => <li key={placeholder.id}>{placeholder.id}</li>)}
       </ul>
     </>
   )
