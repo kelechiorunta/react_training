@@ -1,12 +1,16 @@
 // import { useState } from 'react'
 
 import "./App.css";
+// import NormalizedStateComponent from "./components/NormalizedStateComponent";
 // import TaskOne from "./components/zekeri/useEffect/TaskOne";
 // import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
 // import Task from "./components/zekeri/useEffect/Task";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
-import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
+import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
+import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -26,7 +30,12 @@ function App() {
       {/* <ClassTimerComponent>
         <h3>ClassTimerComponent</h3>
       </ClassTimerComponent> */}
-      <FunctionalTimerComponent />
+      {/* <FunctionalTimerComponent /> */}
+      <OptimizedTimerComponent />
+      <UnOptimizedTimerComponent />
+      <TaskTwo />
+
+      {/* <NormalizedStateComponent /> */}
 
       <br />
       {/* <Students /> */}
