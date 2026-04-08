@@ -33,17 +33,23 @@ import { useEffect, useState } from "react";
 
 export default function TaskTwo() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [togglePos, setTogglePos] = useState(false);
 
+  
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
-    };
-    document.addEventListener("mousemove", handleMouseMove);
+    const handleSetPosition = (e, obj) => setPosition({...obj, x: e.clientX, y: e.clientY })
+    if(!togglePos){
+      document.addEventListener("mousemove", (e) => {handleSetPosition(e,position);
+    }
+    
+    });
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousemove", (e) => {
+        handleSetPosition(e,position)
+      });
     };
-  }, []);
+  }, [togglePos]);
 
   return (
     <div>

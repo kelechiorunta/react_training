@@ -7,6 +7,8 @@ import "./App.css";
 // import Task from "./components/zekeri/useEffect/Task";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
+import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+import MouseTracker from "./components/tega/useEffect/TaskTwo";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
 // import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
 // import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
@@ -31,6 +33,7 @@ function App() {
         <h3>ClassTimerComponent</h3>
       </ClassTimerComponent> */}
       {/* <FunctionalTimerComponent /> */}
+      <MouseTracker />
       {/* <OptimizedTimerComponent />
       <UnOptimizedTimerComponent /> */}
       <TaskTwo />
