@@ -35,8 +35,9 @@ export default function MouseTracker() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [togglePos, setTogglePos] = useState(false);
 
-  const handleSetPosition = (e, obj) => setPosition({...obj, x: e.clientX, y: e.clientY })
+  
   useEffect(() => {
+    const handleSetPosition = (e, obj) => setPosition({...obj, x: e.clientX, y: e.clientY })
     if(!togglePos){
       document.addEventListener("mousemove", (e) => {handleSetPosition(e,position);
     }
