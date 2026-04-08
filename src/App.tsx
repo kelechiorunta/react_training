@@ -7,6 +7,7 @@ import "./App.css";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
 import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+import MouseTracker from "./components/tega/useEffect/TaskTwo";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -26,8 +27,8 @@ function App() {
       {/* <ClassTimerComponent>
         <h3>ClassTimerComponent</h3>
       </ClassTimerComponent> */}
-      <FunctionalTimerComponent />
-
+      {/* <FunctionalTimerComponent /> */}
+      <MouseTracker />
       <br />
       {/* <Students /> */}
 

@@ -34,14 +34,14 @@ import { useEffect, useState } from "react";
 export default function MouseTracker() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  const handleSetPosition = (e, obj) => setPosition({...obj, x: e.clientX, y: e.clientY })
   useEffect(() => {
-    document.addEventListener("mousemove", (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    document.addEventListener("mousemove", (e) => {handleSetPosition(e,position);
     });
 
     return () => {
       document.removeEventListener("mousemove", (e) => {
-        setPosition({ x: e.clientX, y: e.clientY });
+        handleSetPosition(e,position)
       });
     };
   }, []);
