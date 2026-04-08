@@ -33,22 +33,28 @@ import { useEffect, useState } from "react";
 
 export default function TaskTwo() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [showMouse,setShowMouse] = useState( false );
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setPosition((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
     };
-    document.addEventListener("mousemove", handleMouseMove);
+
+    if(showMouse){
+      document.addEventListener("mousemove", handleMouseMove);
+    }
+    
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [showMouse]);
 
   return (
     <div>
       <p>X: {position.x}</p>
       <p>Y: {position.y}</p>
+      <button className="btn btn-primary" onClick={ ()=>{setShowMouse(!showMouse)}}> Toggle Show Mouse </button>
     </div>
   );
 }
