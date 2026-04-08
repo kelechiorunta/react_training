@@ -31,7 +31,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function MouseTracker() {
+export default function TaskTwo() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [togglePos, setTogglePos] = useState(false);
 

@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Working with the useEffect Hook
 // useEffect() Hook: In React, an effect is anything that happens outside the component rendering process.
@@ -14,22 +14,27 @@ import react, { useEffect, useState } from "react";
 // posts: https://jsonplaceholder.typicode.com/posts - Generic posts (100 items).
 // using useEffect
 
+export interface Post {
+  id: number;
+}
+
 export default function Task() {
-  const [data, setData] = useState(null);
-  const [count, setCount] = useState(0)
-  useEffect(()=>{
-    const fetchData = async () =>{
-      try{
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const [data, setData] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts",
+        );
         const result = await response.json();
         setData(result);
-      }catch(error){
-        console.error("error fetching data:", error )
+      } catch (error) {
+        console.error("error fetching data:", error);
       }
-    }
-    fetchData()
-
-  },[])
+    };
+    fetchData();
+  }, []);
   // useEffect(() => {
   //   // Your side effecsetStetet logic (usually a function) goes here
   // }, [dependencies]);
@@ -43,10 +48,12 @@ export default function Task() {
   // return (<><h1>{ count}</h1></>)
   return (
     <>
-      <h1> {count}  </h1>
       <ul>
-      {data.map((placeholder) => <li key={placeholder.id}>{placeholder.id}</li>)}
+        {data &&
+          data.map((placeholder) => (
+            <li key={placeholder.id}>{placeholder.id}</li>
+          ))}
       </ul>
     </>
-  )
+  );
 }
