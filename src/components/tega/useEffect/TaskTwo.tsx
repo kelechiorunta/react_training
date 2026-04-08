@@ -48,7 +48,7 @@ export default function MouseTracker() {
         handleSetPosition(e,position)
       });
     };
-  }, []);
+  }, [togglePos]);
 
   return (
     <div>
