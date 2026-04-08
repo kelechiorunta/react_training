@@ -49,7 +49,7 @@ export default function MouseTracker() {
         handleSetPosition(e, position);
       });
     };
-  }, [togglePos]);
+  }, [togglePos, position]);
 
   return (
     <div>
