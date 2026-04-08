@@ -36,7 +36,7 @@ function App() {
       <MouseTracker />
       {/* <OptimizedTimerComponent />
       <UnOptimizedTimerComponent /> */}
-      <TaskTwo />
+      {/* <TaskTwo /> */}
 
       {/* <NormalizedStateComponent /> */}
 

@@ -33,28 +33,32 @@ import { useEffect, useState } from "react";
 
 export default function TaskTwo() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [togglePos, setTogglePos] = useState(false);
+  const [isToggled, setIsToggled] = useState(false);
 
+  const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsToggled(e.target.checked)
+  }
   
   useEffect(() => {
-    const handleSetPosition = (e, obj) => setPosition({...obj, x: e.clientX, y: e.clientY })
-    if(!togglePos){
-      document.addEventListener("mousemove", (e) => {handleSetPosition(e,position);
+    const handleSetPosition = (e : MouseEvent) => {
+      setPosition((prev) => ({...prev, x: e.clientX, y: e.clientY }))
     }
-    
-    });
+    if(isToggled){
+      document.addEventListener("mousemove", handleSetPosition);
+    }
 
     return () => {
-      document.removeEventListener("mousemove", (e) => {
-        handleSetPosition(e,position)
-      });
-    };
-  }, [togglePos]);
+      document.removeEventListener("mousemove", handleSetPosition);
+      };
+  }, [isToggled]);
 
   return (
     <div>
       <p>X: {position.x}</p>
       <p>Y: {position.y}</p>
+      <label htmlFor="toggle">
+        <input type="checkbox" name="toggle" id="" checked={isToggled} onChange={handleToggle} />
+      </label>
     </div>
   );
 }
