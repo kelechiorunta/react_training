@@ -8,8 +8,8 @@ import "./App.css";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
-import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
+// import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
+// import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
 import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
 
 function App() {
@@ -31,8 +31,8 @@ function App() {
         <h3>ClassTimerComponent</h3>
       </ClassTimerComponent> */}
       {/* <FunctionalTimerComponent /> */}
-      <OptimizedTimerComponent />
-      <UnOptimizedTimerComponent />
+      {/* <OptimizedTimerComponent />
+      <UnOptimizedTimerComponent /> */}
       <TaskTwo />
 
       {/* <NormalizedStateComponent /> */}
