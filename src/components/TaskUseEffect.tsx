@@ -31,30 +31,41 @@
 
 import { useEffect, useState } from "react";
 
-export default function TaskTwo() {
+export default function TaskUseEffect() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [showMouse,setShowMouse] = useState( false );
+  const [isToggled, setIsToggled] = useState(false);
+
+  const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsToggled(e.target.checked);
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
+      if (isToggled) {
+        setPosition((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
+      }
     };
-
-    if(showMouse){
-      document.addEventListener("mousemove", handleMouseMove);
-    }
-    
+    document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [showMouse]);
+  }, [isToggled]);
 
   return (
     <div>
       <p>X: {position.x}</p>
       <p>Y: {position.y}</p>
-      <button className="btn btn-primary" onClick={ ()=>{setShowMouse(!showMouse)}}> Toggle Show Mouse </button>
+      <label htmlFor="toggle">
+        <input
+          type="checkbox"
+          name="toggle"
+          id=""
+          checked={isToggled}
+          onChange={handleToggle}
+        />
+        Toggle
+      </label>
     </div>
   );
 }

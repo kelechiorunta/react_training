@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-const data = {
+const nestedData = {
   users: [
     {
       id: "u1",
@@ -51,6 +51,129 @@ const normalizedData = {
   },
 };
 
+type User = {
+  id: string;
+  name: string;
+  posts?: string[];
+  profile?: string;
+};
+
+type Users = {
+  [key: string]: User;
+};
+
+type Data = {
+  users: Users; //Record<string, object>;
+  posts: Record<string, object>;
+  comments: Record<string, object>;
+};
+
 export default function NormalizedStateComponent() {
-  return <div>NormalizedStateComponent</div>;
+  const [data, setData] = useState<Data>(normalizedData);
+
+  const handleNameChange =
+    (id: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setData((prev) => ({
+        ...prev,
+        users: {
+          ...prev.users,
+          [id]: { ...prev.users[id], name: e.target.value },
+        },
+      }));
+    };
+
+  const handleTitleChange =
+    (name: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setData((prev) => ({
+        ...prev,
+        posts: {
+          ...prev.posts,
+          [name]: { ...prev.posts[name], title: e.target.value },
+        },
+      }));
+    };
+
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Users", data.users);
+    console.log("Posts", data.posts);
+  };
+
+  return (
+    <article>
+      <h2>NormalizedStateComponent</h2>
+      <section style={{ display: "flex", gap: 2 }}>
+        <aside className="user">
+          <form action="submit" onSubmit={handleSubmit}>
+            <label htmlFor="name">
+              Name:
+              <input
+                type="string"
+                name="name"
+                placeholder="Enter Name"
+                value={data.users.u1.name}
+                onChange={handleNameChange("u1")}
+              />
+            </label>
+            <hr />
+
+            <fieldset name="post">
+              <label htmlFor="title">
+                Title:
+                <input
+                  type="string"
+                  name="title"
+                  placeholder="Enter Title"
+                  onChange={handleTitleChange("p1")}
+                />
+              </label>
+              <fieldset name="comment">
+                {" "}
+                <label htmlFor="">
+                  Text:
+                  <input type="string" name="" placeholder="Enter Text" />
+                </label>
+              </fieldset>
+            </fieldset>
+            <button type="submit">Save</button>
+          </form>
+        </aside>
+        <aside className="user">
+          <form action="submit" onSubmit={handleSubmit}>
+            <label htmlFor="name">
+              Name:
+              <input
+                type="string"
+                name="name"
+                value={data.users.u2.name}
+                placeholder="Enter Name"
+                onChange={handleNameChange("u2")}
+              />
+            </label>
+            <hr />
+
+            <fieldset name="post">
+              <label htmlFor="title">
+                Title:
+                <input
+                  type="string"
+                  name="title"
+                  placeholder="Enter Title"
+                  onChange={handleTitleChange("p2")}
+                />
+              </label>
+              <fieldset name="comment">
+                {" "}
+                <label htmlFor="">
+                  Text:
+                  <input type="string" name="" placeholder="Enter Text" />
+                </label>
+              </fieldset>
+            </fieldset>
+            <button type="submit">Save</button>
+          </form>
+        </aside>
+      </section>
+    </article>
+  );
 }
