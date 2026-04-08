@@ -39,7 +39,7 @@ export default function MouseTracker() {
   useEffect(() => {
     if(!togglePos){
       document.addEventListener("mousemove", (e) => {handleSetPosition(e,position);
-    }, setTogglePos(false)
+    }
     
     });
 
