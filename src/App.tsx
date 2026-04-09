@@ -10,8 +10,8 @@ import "./App.css";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
 import MouseTracker from "./components/tega/useEffect/MouseTracker";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-// import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
-// import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
+import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
+import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
 import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
 
 function App() {
@@ -34,8 +34,8 @@ function App() {
       </ClassTimerComponent> */}
       {/* <FunctionalTimerComponent /> */}
       <MouseTracker />
-      {/* <OptimizedTimerComponent />
-      <UnOptimizedTimerComponent /> */}
+      <OptimizedTimerComponent />
+      <UnOptimizedTimerComponent />
       <TaskTwo />
 
       {/* <NormalizedStateComponent /> */}
