@@ -12,7 +12,7 @@ import Subscription from "./components/Subscription";
 import MouseTracker from "./components/tega/useEffect/MouseTracker";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
 import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
-import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
+import UnOptimizedTimerComponent from "./components/UnOptimizedTimerComponent";
 import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
 
 function App() {
