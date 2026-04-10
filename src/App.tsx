@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 
 import "./App.css";
+import Subscription from "./components/Subscription";
 // import NormalizedStateComponent from "./components/NormalizedStateComponent";
 // import TaskOne from "./components/zekeri/useEffect/TaskOne";
 // import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
@@ -37,6 +38,7 @@ function App() {
       <OptimizedTimerComponent />
       <UnOptimizedTimerComponent />
       <TaskTwo />
+      <Subscription />
 
       {/* <NormalizedStateComponent /> */}
 
