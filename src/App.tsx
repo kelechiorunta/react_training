@@ -9,14 +9,111 @@ import Subscription from "./components/Subscription";
 // import Students from "./components/zekeri/useState/Task1";
 // import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-import MouseTracker from "./components/tega/useEffect/MouseTracker";
+// import MouseTracker from "./components/tega/useEffect/MouseTracker";
 // import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
-import UnOptimizedTimerComponent from "./components/UnOptimizedTimerComponent";
-import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
+// import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
+// import UnOptimizedTimerComponent from "./components/UnOptimizedTimerComponent";
+// import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
+import {
+  useRef,
+  useState,
+  type SetStateAction,
+  type Dispatch,
+  useEffectEvent,
+  useEffect,
+  useCallback,
+} from "react";
+import CacheFunctionComponent from "./components/CacheFunctionComponent";
 
 function App() {
   // const [count, setCount] = useState(0)
+  const socketServerRef = useRef<WebSocket | null>(null);
+  const sourceSSERef = useRef<EventSource | null>(null);
+  const [chats, setChats] = useState<{ message: string; from: string }[]>([
+    { message: "", from: "server" },
+  ]);
+  const [digit, setDigit] = useState(0);
+
+  const onSSEConnection = useEffectEvent(() => {
+    const sseSource = new EventSource("/sse/message/sse/data");
+    sourceSSERef.current = sseSource;
+  });
+
+  const onWebSocketConnection = useEffectEvent(() => {
+    const socket = new WebSocket("http://localhost:5174/websocket");
+    socketServerRef.current = socket;
+  });
+
+  const onWSMessage = useEffectEvent((event: MessageEvent) => {
+    console.log("Message From Server", event.data);
+    setChats((prev: object) => [
+      ...(prev as [{ message: string; from: string }]),
+      { message: event.data as string, from: "server" },
+    ]);
+  });
+
+  const onSSEMessage = useEffectEvent((event: MessageEvent) => {
+    console.log("Message From Server", event.data);
+    setChats((prev: object) => [
+      ...(prev as [{ message: string; from: string }]),
+      { message: event.data as string, from: "server" },
+    ]);
+  });
+
+  useEffect(() => {
+    onWebSocketConnection();
+    onSSEConnection();
+  }, []);
+
+  useEffect(() => {
+    const socket = new WebSocket("http://localhost:5174/websocket");
+    socket.onmessage = (event: MessageEvent) => {
+      onWSMessage(event);
+      socket.send("Hi from Client");
+    };
+
+    return () => socket.close();
+  }, []);
+
+  // useEffect(() => {
+  //   const socket = new EventSource("/sse/message/sse/data");
+  //   socket.onmessage = (event: MessageEvent) => {
+  //     onSSEMessage(event);
+  //     // socket.send("Hi from Client");
+  //   };
+
+  //   return () => socket.close();
+  // }, []);
+  useEffect(() => {
+    if (sourceSSERef.current) {
+      sourceSSERef.current.onmessage = onSSEMessage;
+    }
+    return () => sourceSSERef.current?.close();
+  }, []);
+
+  const handleAdd = () => {
+    socketServerRef.current?.send("Thank you");
+    setChats((prev: object) => [
+      ...(prev as [{ message: string; from: string }]),
+      { message: "Thank you", from: "client" },
+    ]);
+    setDigit((d) => d + 1);
+  };
+
+  const [formdata, setFormData] = useState({ message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setChats((prev: object) => [
+      ...(prev as [{ message: string; from: string }]),
+      { message: formdata.message, from: "client" },
+    ]);
+  };
 
   return (
     <>
