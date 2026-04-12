@@ -6,10 +6,17 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": {
+      "/websocket": {
+        target: "ws://localhost:3500",
+        ws: true,
+        changeOrigin: true,
+        secure: false, // dev mode
+      },
+      "/sse": {
         target: "http://localhost:3500",
         changeOrigin: true,
         secure: false, // dev mode
+        rewrite: () => "/message/sse/data",
       },
     },
   },
