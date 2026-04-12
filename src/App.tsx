@@ -131,11 +131,32 @@ function App() {
         <h3>ClassTimerComponent</h3>
       </ClassTimerComponent> */}
       {/* <FunctionalTimerComponent /> */}
-      <MouseTracker />
-      <OptimizedTimerComponent />
-      <UnOptimizedTimerComponent />
-      <TaskTwo />
-      <Subscription />
+      {/* <MouseTracker /> */}
+      {/* <OptimizedTimerComponent /> */}
+      {/* <UnOptimizedTimerComponent /> */}
+      {/* <TaskTwo /> */}
+      <Subscription
+        handleChange={
+          handleChange as (e: React.ChangeEvent<HTMLInputElement>) => {}
+        }
+        handleSubmit={
+          handleSubmit as (e: React.SubmitEvent<HTMLFormElement>) => {}
+        }
+        formdata={formdata as { message: string }}
+        socketServerRef={
+          socketServerRef as ReturnType<typeof useRef<WebSocket>>
+        }
+        chats={
+          chats as ReturnType<
+            typeof useState<{ message: string; from: string }[]>
+          >[0]
+        }
+        setChats={setChats as Dispatch<SetStateAction<object>>}
+      />
+      <CacheFunctionComponent
+        digit={digit as number}
+        handleAdd={handleAdd as () => void}
+      />
 
       {/* <NormalizedStateComponent /> */}
 
