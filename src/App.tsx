@@ -116,16 +116,27 @@ function App() {
     ]);
   };
 
-  const [footballers, setFootballers] = useState<{ name: string }[]>([
-    { name: "" },
-  ]);
+  const [footballer, setFootballer] = useState<{ name: string }>({ name: "" });
+  const [footballers, setFootballers] = useState<{ name: string }[]>([]);
 
   const handleAddFootballer = () => {
     console.log(footballers);
   };
 
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { value } = e.target;
+  //   setFootballer((prev) => ({...prev, name: value}))
+  // }
+
   return (
     <>
+      <input
+        name="footballer"
+        value={footballer.name}
+        onChange={(e) =>
+          setFootballer((prev) => ({ ...prev, name: e.target.value }))
+        }
+      ></input>
       <Footballer
         footballers={footballers}
         handleAddFootballer={handleAddFootballer}
