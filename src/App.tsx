@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 
 import "./App.css";
-import Subscription from "./components/Subscription";
+// import Subscription from "./components/Subscription";
 // import NormalizedStateComponent from "./components/NormalizedStateComponent";
 // import TaskOne from "./components/zekeri/useEffect/TaskOne";
 // import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
@@ -23,7 +23,8 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import CacheFunctionComponent from "./components/CacheFunctionComponent";
+import Footballer from "./components/Footballer";
+// import CacheFunctionComponent from "./components/CacheFunctionComponent";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -115,8 +116,20 @@ function App() {
     ]);
   };
 
+  const [footballers, setFootballers] = useState<{ name: string }[]>([
+    { name: "" },
+  ]);
+
+  const handleAddFootballer = () => {
+    console.log(footballers);
+  };
+
   return (
     <>
+      <Footballer
+        footballers={footballers}
+        handleAddFootballer={handleAddFootballer}
+      />
       {/* <section id="center">
         <button
           className="counter"
@@ -135,7 +148,7 @@ function App() {
       {/* <OptimizedTimerComponent /> */}
       {/* <UnOptimizedTimerComponent /> */}
       {/* <TaskTwo /> */}
-      <Subscription
+      {/* <Subscription
         handleChange={
           handleChange as (e: React.ChangeEvent<HTMLInputElement>) => {}
         }
@@ -156,7 +169,7 @@ function App() {
       <CacheFunctionComponent
         digit={digit as number}
         handleAdd={handleAdd as () => void}
-      />
+      /> */}
 
       {/* <NormalizedStateComponent /> */}
 
