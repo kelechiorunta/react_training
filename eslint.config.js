@@ -20,5 +20,6 @@ export default defineConfig([
       globals: globals.browser,
     },
     allowedNames: ["ee"],
+    allowDestructuring: true,
   },
 ]);
