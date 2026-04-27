@@ -120,8 +120,11 @@ function App() {
   const [footballers, setFootballers] = useState<{ name: string }[]>([]);
 
   const handleAddFootballer = () => {
-    console.log(footballers);
+    setFootballers((prev) => [...prev, footballer]);
+    console.log([...footballers, footballer]);
   };
+
+  const cacheFn = useCallback(handleAddFootballer, [footballer.name]);
 
   // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const { value } = e.target;
@@ -138,8 +141,9 @@ function App() {
         }
       ></input>
       <Footballer
+        // footballer={footballer}
         footballers={footballers}
-        handleAddFootballer={handleAddFootballer}
+        handleAddFootballer={cacheFn}
       />
       {/* <section id="center">
         <button
