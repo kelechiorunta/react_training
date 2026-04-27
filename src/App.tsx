@@ -35,10 +35,10 @@ function App() {
   ]);
   const [digit, setDigit] = useState(0);
 
-  const onSSEConnection = useEffectEvent(() => {
-    const sseSource = new EventSource("/sse/message/sse/data");
-    sourceSSERef.current = sseSource;
-  });
+  // const onSSEConnection = useEffectEvent(() => {
+  //   const sseSource = new EventSource("/sse/message/sse/data");
+  //   sourceSSERef.current = sseSource;
+  // });
 
   const onWebSocketConnection = useEffectEvent(() => {
     const socket = new WebSocket("http://localhost:5174/websocket");
@@ -63,7 +63,7 @@ function App() {
 
   useEffect(() => {
     onWebSocketConnection();
-    onSSEConnection();
+    // onSSEConnection();
   }, []);
 
   useEffect(() => {
