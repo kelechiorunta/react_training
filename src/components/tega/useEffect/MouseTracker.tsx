@@ -31,26 +31,25 @@
 
 import { useEffect, useState } from "react";
 
-export default function TaskTwo() {
+export default function MouseTracker() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isToggled, setIsToggled] = useState(false);
+  const [togglePos, setTogglePos] = useState(false);
 
-  const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsToggled(e.target.checked)
-  }
-  
   useEffect(() => {
-    const handleSetPosition = (e : MouseEvent) => {
-      setPosition((prev) => ({...prev, x: e.clientX, y: e.clientY }))
-    }
-    if(isToggled){
-      document.addEventListener("mousemove", handleSetPosition);
+    const handleSetPosition = (e: MouseEvent, obj: object) =>
+      setPosition({ ...obj, x: e.clientX, y: e.clientY });
+    if (!togglePos) {
+      document.addEventListener("mousemove", (e) => {
+        handleSetPosition(e, position);
+      });
     }
 
     return () => {
-      document.removeEventListener("mousemove", handleSetPosition);
-      };
-  }, [isToggled]);
+      document.removeEventListener("mousemove", (e) => {
+        handleSetPosition(e, position);
+      });
+    };
+  }, [togglePos, position]);
 
   return (
     <div>
