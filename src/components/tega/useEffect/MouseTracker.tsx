@@ -55,6 +55,9 @@ export default function MouseTracker() {
     <div>
       <p>X: {position.x}</p>
       <p>Y: {position.y}</p>
+      <label htmlFor="toggle">
+        <input type="checkbox" name="toggle" id="" checked={isToggled} onChange={handleToggle} />
+      </label>
     </div>
   );
 }
