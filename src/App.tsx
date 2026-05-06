@@ -58,6 +58,7 @@ import {
   useCallback,
 } from "react";
 import Footballer from "./components/Footballer";
+import CountRef from "./components/CountRef";
 // import CacheFunctionComponent from "./components/CacheFunctionComponent";
 
 function App() {
@@ -167,7 +168,8 @@ function App() {
 
   return (
     <>
-      <input
+      <CountRef />
+      {/* <input
         name="footballer"
         value={footballer.name}
         onChange={(e) =>
@@ -178,8 +180,12 @@ function App() {
         // footballer={footballer}
         footballers={footballers}
         handleAddFootballer={cacheFn}
+<<<<<<< HEAD
       />
 >>>>>>> main
+=======
+      /> */}
+>>>>>>> c804249 (Implement a CouterRef)
       {/* <section id="center">
         <button
           className="counter"
