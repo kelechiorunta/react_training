@@ -1,53 +1,6 @@
 // import { useState } from 'react'
 
 import "./App.css";
-// import Subscription from "./components/Subscription";
-// import NormalizedStateComponent from "./components/NormalizedStateComponent";
-// import TaskOne from "./components/zekeri/useEffect/TaskOne";
-// import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
-// import Task from "./components/zekeri/useEffect/Task";
-// import Students from "./components/zekeri/useState/Task1";
-// import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
-<<<<<<< HEAD
-import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-// import MouseTracker from "./components/tega/useEffect/TaskTwo";
-// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-// import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
-// import UnOptimizedTimerComponent from "./UnOptimizedTimerComponent";
-// import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
-import Counter from "./components/tega/useEffect/Counter";
-import { useCallback, useMemo, useState } from "react";
-import Payment from "./components/tega/useMemo/Payment";
-
-function App() {
-  // const [count, setCount] = useState(0)
-  const [counter, setCounter] = useState(0)
-  const [payment, setPayment] = useState(0)
-
-  const handleCount = useCallback(() => {
-    setCounter( counter + 1)
-    console.log("Child rendered")
-  }, [counter])
-
-  const handlePayment = () =>{
-    setPayment(c => c + 1000)
-  }
-
-  const memoizedPayment = useMemo(()=>payment, [payment])
-
-  return (
-    <>
-    {/* <h1>{counter}</h1> */}
-    {/* <Counter handleCount={handleCount}/> */}
-    <Payment payment={memoizedPayment} />
-    <button onClick={handlePayment}>Add payment</button>
-=======
-// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-// import MouseTracker from "./components/tega/useEffect/MouseTracker";
-// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
-// import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
-// import UnOptimizedTimerComponent from "./components/UnOptimizedTimerComponent";
-// import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
 import {
   useRef,
   useState,
@@ -169,76 +122,6 @@ function App() {
   return (
     <>
       <CountRef />
-      {/* <input
-        name="footballer"
-        value={footballer.name}
-        onChange={(e) =>
-          setFootballer((prev) => ({ ...prev, name: e.target.value }))
-        }
-      ></input>
-      <Footballer
-        // footballer={footballer}
-        footballers={footballers}
-        handleAddFootballer={cacheFn}
-<<<<<<< HEAD
-      />
->>>>>>> main
-=======
-      /> */}
->>>>>>> c804249 (Implement a CouterRef)
-      {/* <section id="center">
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks">{ count}</div> */}
-      {/* <ClassTimerComponent>
-        <h3>ClassTimerComponent</h3>
-      </ClassTimerComponent> */}
-      {/* <FunctionalTimerComponent /> */}
-      {/* <MouseTracker /> */}
-<<<<<<< HEAD
-      {/* <OptimizedTimerComponent />
-      <UnOptimizedTimerComponent /> */}
-      {/* <TaskTwo /> */}
-=======
-      {/* <OptimizedTimerComponent /> */}
-      {/* <UnOptimizedTimerComponent /> */}
-      {/* <TaskTwo /> */}
-      {/* <Subscription
-        handleChange={
-          handleChange as (e: React.ChangeEvent<HTMLInputElement>) => {}
-        }
-        handleSubmit={
-          handleSubmit as (e: React.SubmitEvent<HTMLFormElement>) => {}
-        }
-        formdata={formdata as { message: string }}
-        socketServerRef={
-          socketServerRef as ReturnType<typeof useRef<WebSocket>>
-        }
-        chats={
-          chats as ReturnType<
-            typeof useState<{ message: string; from: string }[]>
-          >[0]
-        }
-        setChats={setChats as Dispatch<SetStateAction<object>>}
-      />
-      <CacheFunctionComponent
-        digit={digit as number}
-        handleAdd={handleAdd as () => void}
-      /> */}
->>>>>>> main
-
-      {/* <NormalizedStateComponent /> */}
-
-      {/* <br /> */}
-      {/* <Students /> */}
-
-      {/* <TaskOneA /> */}
     </>
   );
 }
