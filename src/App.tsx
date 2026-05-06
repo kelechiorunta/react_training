@@ -1,6 +1,19 @@
 // import { useState } from 'react'
 
 import "./App.css";
+// import Subscription from "./components/Subscription";
+// import NormalizedStateComponent from "./components/NormalizedStateComponent";
+// import TaskOne from "./components/zekeri/useEffect/TaskOne";
+// import TaskOneA from "./components/zekeri/useEffect/TaskOneA";
+// import Task from "./components/zekeri/useEffect/Task";
+// import Students from "./components/zekeri/useState/Task1";
+// import ClassTimerComponent from "./components/zekeri/useEffect/ClassTimerComponent";
+// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+// import MouseTracker from "./components/tega/useEffect/MouseTracker";
+// import FunctionalTimerComponent from "./components/FunctionalTimerComponent";
+// import OptimizedTimerComponent from "./components/OptimizedTimerComponent";
+// import UnOptimizedTimerComponent from "./components/UnOptimizedTimerComponent";
+// import TaskTwo from "./components/zekeri/useEffect/TaskTwo";
 import {
   useRef,
   useState,
@@ -10,9 +23,12 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import Footballer from "./components/Footballer";
-import CountRef from "./components/CountRef";
-import StopWatch from "./components/StopWatch";
+import UserProfileForm from "./components/tega/Assessment/Assessment";
+import InputRef from "./components/InputRef";
+// import Footballer from "./components/Footballer";
+// import UserProfileForm from "./components/tega/Assessment/Assessment";
+
+
 // import CacheFunctionComponent from "./components/CacheFunctionComponent";
 
 function App() {
@@ -24,10 +40,10 @@ function App() {
   ]);
   const [digit, setDigit] = useState(0);
 
-  // const onSSEConnection = useEffectEvent(() => {
-  //   const sseSource = new EventSource("/sse/message/sse/data");
-  //   sourceSSERef.current = sseSource;
-  // });
+  const onSSEConnection = useEffectEvent(() => {
+    const sseSource = new EventSource("/sse/message/sse/data");
+    sourceSSERef.current = sseSource;
+  });
 
   const onWebSocketConnection = useEffectEvent(() => {
     const socket = new WebSocket("http://localhost:5174/websocket");
@@ -52,7 +68,7 @@ function App() {
 
   useEffect(() => {
     onWebSocketConnection();
-    // onSSEConnection();
+    onSSEConnection();
   }, []);
 
   useEffect(() => {
@@ -109,11 +125,8 @@ function App() {
   const [footballers, setFootballers] = useState<{ name: string }[]>([]);
 
   const handleAddFootballer = () => {
-    setFootballers((prev) => [...prev, footballer]);
-    console.log([...footballers, footballer]);
+    console.log(footballers);
   };
-
-  const cacheFn = useCallback(handleAddFootballer, [footballer.name]);
 
   // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const { value } = e.target;
@@ -122,8 +135,66 @@ function App() {
 
   return (
     <>
-      <CountRef />
-      <StopWatch />
+    <UserProfileForm/>
+    <InputRef/>
+      {/* <input
+        name="footballer"
+        value={footballer.name}
+        onChange={(e) =>
+          setFootballer((prev) => ({ ...prev, name: e.target.value }))
+        }
+      ></input>
+      <Footballer
+        footballers={footballers}
+        handleAddFootballer={handleAddFootballer}
+      /> */}
+      {/* <section id="center">
+        <button
+          className="counter"
+          onClick={() => setCount((count) => count + 1)}
+        >
+          Count is {count}
+        </button>
+      </section>
+
+      <div className="ticks">{ count}</div> */}
+      {/* <ClassTimerComponent>
+        <h3>ClassTimerComponent</h3>
+      </ClassTimerComponent> */}
+      {/* <FunctionalTimerComponent /> */}
+      {/* <MouseTracker /> */}
+      {/* <OptimizedTimerComponent /> */}
+      {/* <UnOptimizedTimerComponent /> */}
+      {/* <TaskTwo /> */}
+      {/* <Subscription
+        handleChange={
+          handleChange as (e: React.ChangeEvent<HTMLInputElement>) => {}
+        }
+        handleSubmit={
+          handleSubmit as (e: React.SubmitEvent<HTMLFormElement>) => {}
+        }
+        formdata={formdata as { message: string }}
+        socketServerRef={
+          socketServerRef as ReturnType<typeof useRef<WebSocket>>
+        }
+        chats={
+          chats as ReturnType<
+            typeof useState<{ message: string; from: string }[]>
+          >[0]
+        }
+        setChats={setChats as Dispatch<SetStateAction<object>>}
+      />
+      <CacheFunctionComponent
+        digit={digit as number}
+        handleAdd={handleAdd as () => void}
+      /> */}
+
+      {/* <NormalizedStateComponent /> */}
+
+      <br />
+      {/* <Students /> */}
+
+      {/* <TaskOneA /> */}
     </>
   );
 }
