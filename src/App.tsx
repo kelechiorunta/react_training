@@ -12,6 +12,7 @@ import {
 } from "react";
 import Footballer from "./components/Footballer";
 import CountRef from "./components/CountRef";
+import StopWatch from "./components/StopWatch";
 // import CacheFunctionComponent from "./components/CacheFunctionComponent";
 
 function App() {
@@ -122,6 +123,7 @@ function App() {
   return (
     <>
       <CountRef />
+      <StopWatch />
     </>
   );
 }
