@@ -5,6 +5,7 @@ export default function Todo({ ...props }) {
         display: "flex",
         gap: 2,
         justifyContent: "space-evenly",
+        alignItems: "center",
         padding: 4,
         border: "1px solid rgba(0,0,0,0.5)",
         boxShadow: "2px 2px 2px -2px rgba(0,0,0,0.5)",
@@ -23,6 +24,8 @@ export default function Todo({ ...props }) {
         />
         Completed
       </label>
+
+      <button onClick={() => props.handleDelete(props.id)}> Delete Task</button>
     </div>
   );
 }

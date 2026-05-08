@@ -28,6 +28,14 @@ export default function Task() {
     }
   };
 
+  const handleDelete = (id: number) => {
+    try {
+      dispatch({ type: "REMOVE_TASK", id: id });
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : error);
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputTask((prev) => ({ ...prev, text: e.target.value }));
   };
@@ -48,7 +56,13 @@ export default function Task() {
       </fieldset>
       <ul>
         {tasks.map((task, index) => (
-          <Todo key={index} id={task.id} text={task.text} done={task.done} />
+          <Todo
+            key={index}
+            id={task.id}
+            text={task.text}
+            done={task.done}
+            handleDelete={handleDelete}
+          />
         ))}
       </ul>
     </div>
