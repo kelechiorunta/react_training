@@ -24,6 +24,14 @@ const taskReducer = (state: task[], action: actionType) => {
     case "REMOVE_TASK": {
       return state.filter((task) => task.id !== action.id);
     }
+    case "UPDATE_TASK": {
+      return state.map((task) => {
+        if (task.id === action.id) {
+          return { ...task, text: action.text };
+        }
+        return task;
+      });
+    }
     default:
       throw new Error("No action defined");
   }
