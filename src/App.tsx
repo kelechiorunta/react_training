@@ -25,9 +25,9 @@ import {
 } from "react";
 import UserProfileForm from "./components/tega/Assessment/Assessment";
 import InputRef from "./components/InputRef";
+import Task from "./components/useReducer/Task";
 // import Footballer from "./components/Footballer";
 // import UserProfileForm from "./components/tega/Assessment/Assessment";
-
 
 // import CacheFunctionComponent from "./components/CacheFunctionComponent";
 
@@ -135,8 +135,9 @@ function App() {
 
   return (
     <>
-    <UserProfileForm/>
-    <InputRef/>
+      {/* <UserProfileForm/>
+    <InputRef/> */}
+      <Task />
       {/* <input
         name="footballer"
         value={footballer.name}

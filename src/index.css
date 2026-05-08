@@ -51,7 +51,8 @@
 }
 
 #root {
-  font-family: "Bitcount Grid Double", sans-serif;
+  /* font-family: "Bitcount Grid Double", sans-serif; */
+  font-family: "Poppins", sans-serif;
   width: 1226px;
   max-width: 100%;
   margin: 0 auto;
