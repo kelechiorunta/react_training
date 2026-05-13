@@ -7,7 +7,7 @@ Focus on understanding how useReducer works.
 Section A — Theory Questions
 
 1. What is the purpose of the useReducer hook?
-   The useReducer hook in React is used to manage complex state logic in functional components.
+   The useReducer hook in React is used to manage complex state logic through dispatch actions than setter functions in functional components.
 2. What are the two arguments passed into useReducer?
    State and dispatch(function used to send action)
 3. What does the reducer function return?
@@ -34,13 +34,13 @@ return { count: state.count + 1 };
       return { count: state.count - 1 };
 
     default:
-      return _______;
+      return state;
 
 }
 }
 
 export default function Counter() {
-const [state, dispatch] = useReducer(**\_\_\_**, **\_\_\_**);
+const [state, dispatch] = useReducer(reducer, initialState);
 
 return (
 
@@ -49,7 +49,7 @@ return (
 
       <button
         onClick={() =>
-          dispatch({ type: '__________' })
+          dispatch({ type: 'increment' })
         }
       >
         +
@@ -57,7 +57,7 @@ return (
 
       <button
         onClick={() =>
-          dispatch({ type: '__________' })
+          dispatch({ type: 'decrement' })
         }
       >
         -

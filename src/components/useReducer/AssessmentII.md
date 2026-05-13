@@ -13,150 +13,35 @@ Dispatch actions to update state.
 Manage multiple related state values using a single reducer.
 Build a small interactive React component using useReducer.
 Theory Questions
-1. What is useReducer in React?
 
-Explain what the useReducer hook does and when it is commonly used.
+1. What is useReducer in React?
+   It is a hook used to manage complex state logic through dispatch functions
+   Explain what the useReducer hook does and when it is commonly used.
+   When dealing with complex state logic.
 
 2. What are the two parameters accepted by useReducer?
+   state and action
 
 Write and explain the syntax below:
 
-const [state, dispatch] = useReducer(reducer, initialState);
-3. What is the purpose of the dispatch function?
+const [state, dispatch] = useReducer(reducer, initialState); 3. What is the purpose of the dispatch function?
+This tells us what function is assigned and going to be updated using the dispatch functions instead of the setter function.
 
 Explain how dispatch() works in updating state.
+You give it a payload case in which it will update based on.
 
 4. What is an action object?
+   This specifies an action based from the object of tasks that is supposed to be carried out
 
 Describe the structure of a typical action object in React reducers.
-
+This is an object with strings thsat determine the action of what is being carried out.
 Example:
 
 {
-  type: 'increment'
-}
-5. Difference Between useState and useReducer
+type: 'increment'
+} 5. Difference Between useState and useReducer
+They are both used to handle complex state logic only that useState updates the state using setter functions useReducer updates state using dispatch functions.
 
 Explain one major difference between useState and useReducer.
-
-Practical Assessment Tasks
-Task 1 — Counter Application
-
-Create a counter application with:
-
-Increment button
-Decrement button
-Reset button
-
-Initial state:
-
-0
-
-Buttons should update the counter using useReducer.
-
-Task 2 — Theme Toggle
-
-Create a theme switcher using useReducer.
-
-Requirements:
-
-Initial theme should be "light"
-Add a button to toggle between:
-"light"
-"dark"
-
-Display the current theme on the screen.
-
-Task 3 — Form State Management
-
-Create a simple form with:
-
-Name input
-Email input
-
-Use useReducer to manage the form state.
-
-Requirements:
-
-Update state as the user types
-Display entered values below the form
-Task 4 — Todo List
-
-Build a small todo application using useReducer.
-
-Requirements:
-
-Add todos
-Delete todos
-Display all todos
-
-Each todo should contain:
-
-{
-  id,
-  text
-}
-Task 5 — Shopping Cart
-
-Create a simple shopping cart reducer.
-
-Requirements:
-
-Add item
-Remove item
-Clear cart
-
-Display:
-
-Number of items in cart
-List of cart items
-Bonus Challenge
-
-Modify the todo app to include:
-
-Completed tasks
-Toggle complete/incomplete
-Count completed tasks
-Starter Boilerplate
-import React, { useReducer } from 'react';
-
-const initialState = {};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case '':
-      return {};
-
-    default:
-      return state;
-  }
-}
-
-function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  return (
-    <div>
-      <h1>useReducer Assessment</h1>
-    </div>
-  );
-}
-
-export default App;
-Submission Requirements
-
-Students should submit:
-
-React component files
-Reducer function
-Screenshots of completed UI
-Short explanation of how dispatch() works in their project
-Assessment Goals
-
-This assessment tests:
-
-State management understanding
-Reducer logic
-Action handling
-Component structure
-React hook usage
+useState updates the state using setter functions while useReducer updates state using dispatch functions.
+s
