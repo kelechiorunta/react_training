@@ -31,7 +31,7 @@ Explain how dispatch() works in updating state.
 You pass in an action object as parameter that will send the information on how to update state based on the type property of the action object.
 
 4. What is an action object?
-   This specifies an action based from the object of tasks that is supposed to be carried out
+  This is an object with a type property that describes actions to be carried out to update state in the reducer. It is an argument passed to the dispatch function.
 
 Describe the structure of a typical action object in React reducers.
 This is an object with strings thsat determine the action of what is being carried out.
