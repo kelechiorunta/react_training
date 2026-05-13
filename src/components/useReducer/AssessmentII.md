@@ -20,7 +20,7 @@ Theory Questions
    When dealing with complex state logic.
 
 2. What are the two parameters accepted by useReducer?
-   state and action
+  a reducer function and an initial state
 
 Write and explain the syntax below:
 
