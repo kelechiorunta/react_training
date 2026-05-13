@@ -9,7 +9,7 @@ Section A — Theory Questions
 1. What is the purpose of the useReducer hook?
    The useReducer hook in React is used to manage complex state logic through dispatch actions than setter functions in functional components.
 2. What are the two arguments passed into useReducer?
-   State and dispatch(function used to send action)
+  a reducer function and an initial state object
 3. What does the reducer function return?
    return the updated state object/value
 4. What is an “action” in useReducer?
