@@ -25,7 +25,7 @@ Theory Questions
 Write and explain the syntax below:
 
 const [state, dispatch] = useReducer(reducer, initialState); 3. What is the purpose of the dispatch function?
-This tells us what function is assigned and going to be updated using the dispatch functions instead of the setter function.
+The dispatch function is meant to dispatch action objects to the reducer as arguments that will contain user's information on the actions to be carried out to update state.
 
 Explain how dispatch() works in updating state.
 You give it a payload case in which it will update based on.
