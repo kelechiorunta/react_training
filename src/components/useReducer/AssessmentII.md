@@ -23,6 +23,7 @@ Theory Questions
   a reducer function and an initial state
 
 Write and explain the syntax below:
+The syntax is the declaration of a useReducer hook that takes a reducer and an initial state as parameters to return an array destructuring of state and dispatch function .
 
 const [state, dispatch] = useReducer(reducer, initialState); 3. What is the purpose of the dispatch function?
 The dispatch function is meant to dispatch action objects to the reducer as arguments that will contain user's information on the actions to be carried out to update state.
