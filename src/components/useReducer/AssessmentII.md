@@ -34,7 +34,7 @@ You pass in an action object as parameter that will send the information on how 
   This is an object with a type property that describes actions to be carried out to update state in the reducer. It is an argument passed to the dispatch function.
 
 Describe the structure of a typical action object in React reducers.
-This is an object with strings thsat determine the action of what is being carried out.
+This is an object with a type property that describes the action to be carried out. It is usually of a string data type.
 Example:
 
 {
