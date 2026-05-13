@@ -17,7 +17,7 @@ Theory Questions
 1. What is useReducer in React?
    It is a hook used to manage complex state logic through dispatch functions
    Explain what the useReducer hook does and when it is commonly used.
-   When dealing with complex state logic.
+ It updates state through dispatched action objects in event handlers. It is commonly used when dealing with related complex state logic that can be handled by a reducer function.
 
 2. What are the two parameters accepted by useReducer?
   a reducer function and an initial state
