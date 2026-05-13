@@ -28,7 +28,7 @@ const [state, dispatch] = useReducer(reducer, initialState); 3. What is the purp
 The dispatch function is meant to dispatch action objects to the reducer as arguments that will contain user's information on the actions to be carried out to update state.
 
 Explain how dispatch() works in updating state.
-You give it a payload case in which it will update based on.
+You pass in an action object as parameter that will send the information on how to update state based on the type property of the action object.
 
 4. What is an action object?
    This specifies an action based from the object of tasks that is supposed to be carried out
